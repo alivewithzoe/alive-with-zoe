@@ -1,0 +1,437 @@
+/* ==========================================================
+   Alive with Zoë — styles
+   Built phone-first: the main rules are for phones, and the
+   "@media (min-width: ...)" sections adjust for bigger screens.
+   ========================================================== */
+
+/* ---------- Colors and fonts (change them here only) ---------- */
+:root {
+  --cream: #efeae0;
+  --sand: #e6d3b3;
+  --butter: #dedb9a;
+  --sage: #8c9e5e;
+  --plum: #8b3a55;
+  --chocolate: #4a2a22;
+
+  --font-heading: "Playfair Display", Georgia, serif;
+  --font-script: "Mrs Saint Delafield", cursive;
+  --font-body: "Lato", Arial, sans-serif;
+
+  /* Soft paper-like grain, drawn by the browser (no image file needed) */
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .29 0 0 0 0 .16 0 0 0 0 .13 0 0 0 .22 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+
+  --bar-height: 4.5rem;
+}
+
+/* ---------- Basics ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--cream) var(--grain);
+  color: var(--chocolate);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+}
+
+.script {
+  font-family: var(--font-script);
+  font-weight: 400;
+  color: var(--plum);
+}
+
+/* Hidden on-off switches that power the intro skip and the menu */
+.toggle {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+}
+
+/* ---------- 1. Intro effect ---------- */
+.intro {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  background: var(--cream) var(--grain);
+  cursor: pointer;
+  animation: intro-out 0.7s ease 3s forwards;
+}
+
+.intro-word {
+  font-family: var(--font-heading);
+  font-size: clamp(2.25rem, 11vw, 4.5rem);
+  line-height: 1.15;
+  opacity: 0;
+  transform: translateY(0.6rem);
+  animation: word-in 0.6s ease forwards;
+}
+
+.intro-word:nth-child(1) { animation-delay: 0.2s; }
+.intro-word:nth-child(2) { animation-delay: 0.8s; }
+.intro-word:nth-child(3) { animation-delay: 1.4s; }
+
+.intro-word.script {
+  font-family: var(--font-script);
+  font-size: clamp(3.5rem, 18vw, 7rem);
+  line-height: 1.1;
+  animation-delay: 2s;
+}
+
+.intro-hint {
+  position: absolute;
+  bottom: 2rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+
+@keyframes word-in {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes intro-out {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/* Tapping the intro skips it */
+#skip-intro:checked ~ .intro {
+  display: none;
+}
+
+/* People who turn off motion on their phone don't see the intro */
+@media (prefers-reduced-motion: reduce) {
+  .intro {
+    display: none;
+  }
+}
+
+/* ---------- 2. Top bar and menu ---------- */
+.top-bar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  height: var(--bar-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.25rem;
+  background: var(--cream) var(--grain);
+  border-bottom: 1px solid rgba(74, 42, 34, 0.12);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  position: relative;
+  z-index: 2;
+}
+
+.brand-emblem {
+  width: 2.75rem;
+  height: auto;
+}
+
+.brand-name {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  letter-spacing: 0.08em;
+}
+
+.brand-name .script {
+  font-size: 1.6rem;
+  letter-spacing: 0;
+}
+
+/* The ☰ button (three lines that turn into an X) */
+.menu-button {
+  position: relative;
+  z-index: 2;
+  width: 2.75rem;
+  height: 2.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.menu-button span,
+.menu-button span::before,
+.menu-button span::after {
+  display: block;
+  width: 1.6rem;
+  height: 2px;
+  background: var(--chocolate);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.menu-button span {
+  position: relative;
+}
+
+.menu-button span::before,
+.menu-button span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+
+.menu-button span::before { top: -0.5rem; }
+.menu-button span::after { top: 0.5rem; }
+
+#menu-toggle:checked ~ .menu-button span {
+  background: transparent;
+}
+
+#menu-toggle:checked ~ .menu-button span::before {
+  transform: translateY(0.5rem) rotate(45deg);
+}
+
+#menu-toggle:checked ~ .menu-button span::after {
+  transform: translateY(-0.5rem) rotate(-45deg);
+}
+
+#menu-toggle:focus-visible ~ .menu-button {
+  outline: 2px solid var(--plum);
+  outline-offset: 2px;
+}
+
+/* The full-screen menu (phones) */
+.menu {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  background: var(--cream) var(--grain);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+
+#menu-toggle:checked ~ .menu {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Stop the page scrolling behind the open menu */
+body:has(#menu-toggle:checked) {
+  overflow: hidden;
+}
+
+.menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.menu li + li {
+  margin-top: 1.25rem;
+}
+
+.menu a {
+  font-family: var(--font-heading);
+  font-size: 2.25rem;
+  color: var(--plum);
+  text-decoration: none;
+}
+
+.menu a[aria-current="page"] {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.35em;
+}
+
+.menu-ornament {
+  width: 6rem;
+}
+
+/* ---------- 3. Headline area ---------- */
+.hero {
+  position: relative;
+  min-height: calc(100vh - var(--bar-height));
+  min-height: calc(100svh - var(--bar-height));
+  display: flex;
+  align-items: flex-end;
+}
+
+/* Placeholder until Zoë's photo is ready */
+.hero-photo {
+  position: absolute;
+  inset: 0;
+  background: var(--sand) var(--grain);
+}
+
+.photo-note {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  opacity: 0.55;
+}
+
+.hero-text {
+  position: relative;
+  padding: 2rem 1.25rem 3rem;
+}
+
+.hero h1 {
+  margin: 0 0 1.75rem;
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: clamp(2.75rem, 13vw, 5.5rem);
+  line-height: 1.05;
+}
+
+.hero h1 .script {
+  font-size: 1.45em;
+  line-height: 0.6;
+}
+
+.button {
+  display: inline-block;
+  padding: 0.9rem 2.25rem;
+  background: var(--plum);
+  color: var(--cream);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 999px;
+  transition: background 0.2s ease;
+}
+
+.button:hover,
+.button:focus-visible {
+  background: var(--chocolate);
+}
+
+/* ---------- "Coming soon" pages ---------- */
+.coming-soon {
+  min-height: calc(100vh - var(--bar-height));
+  min-height: calc(100svh - var(--bar-height));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 2rem 1.25rem;
+  text-align: center;
+}
+
+.coming-soon h1 {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: clamp(2.5rem, 12vw, 4.5rem);
+}
+
+.coming-soon .script {
+  font-size: clamp(2.5rem, 12vw, 4rem);
+  line-height: 1;
+}
+
+.coming-soon img {
+  width: 7rem;
+}
+
+.coming-soon p {
+  margin: 0 0 1rem;
+}
+
+/* ---------- Bigger screens (tablets and computers) ---------- */
+@media (min-width: 900px) {
+  .top-bar {
+    padding: 0 3rem;
+  }
+
+  /* No ☰ button: the menu sits in a row across the top */
+  .menu-button {
+    display: none;
+  }
+
+  .menu {
+    position: static;
+    flex-direction: row;
+    gap: 0;
+    background: none;
+    opacity: 1;
+    visibility: visible;
+    transition: none;
+  }
+
+  .menu-ornament {
+    display: none;
+  }
+
+  .menu ul {
+    display: flex;
+    gap: 2.5rem;
+  }
+
+  .menu li + li {
+    margin-top: 0;
+  }
+
+  .menu a {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--chocolate);
+  }
+
+  .menu a:hover,
+  .menu a[aria-current="page"] {
+    color: var(--plum);
+  }
+
+  .hero-text {
+    padding: 3rem 3rem 5rem;
+  }
+}
