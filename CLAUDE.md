@@ -88,3 +88,14 @@ _Each approved decision gets added here, with the date._
     site. Use Zoë's own photos and original artwork.
   - **Still needed from Zoë:** photos, email address, and the "About Zoë" text
     (Claude can draft it for Zoë to edit).
+- 2026-10-06 — **Home page build, step 1 choices:**
+  - Build the home page in small steps. Step 1 = intro effect, top bar with
+    ☰ menu, and headline area.
+  - Photo spots: soft color blocks marked "Photo coming soon" until Zoë's
+    photos are ready.
+  - Placeholder emblem: a small symmetrical leaf flourish in plum.
+  - Orchid outlines should appear on the sides of the screen while scrolling
+    down (for a later step).
+  - "Let's talk" button and menu links go to simple "Coming soon" pages
+    (Contact, Pricing, Newsletter) until the real pages are built.
+  - Turn on GitHub Pages now so each step can be checked on a phone.

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 64" fill="#8B3A55">
+  <!-- Placeholder emblem: a simple symmetrical leaf flourish -->
+  <path d="M60 4 C67 16 67 30 60 41 C53 30 53 16 60 4Z"/>
+  <path d="M57.5 41 C49 35 43 25 43 13 C52 19 57 29 57.5 41Z"/>
+  <path d="M62.5 41 C71 35 77 25 77 13 C68 19 63 29 62.5 41Z"/>
+  <path d="M55 47 C43 40 25 40 8 46 C25 51 43 52 55 47Z"/>
+  <path d="M65 47 C77 40 95 40 112 46 C95 51 77 52 65 47Z"/>
+  <circle cx="60" cy="49" r="4"/>
+  <circle cx="60" cy="59" r="2.2"/>
+  <circle cx="3" cy="46" r="2.2"/>
+  <circle cx="117" cy="46" r="2.2"/>
+</svg>
