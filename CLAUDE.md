@@ -43,5 +43,48 @@ rules, the business details, and a running list of everything Zoë has approved.
 
 _Each approved decision gets added here, with the date._
 
-- 2026-10-05 — Working rules and business details saved in this file. No
-  website design decisions yet.
+- 2026-10-05 — Working rules and business details saved in this file.
+- 2026-10-06 — **Home page plan approved** (nothing built yet):
+  - **Feel:** warm, earthy, sultry; soft paper-like grain texture; elegant
+    ornaments on plain backgrounds, broken up by bold color blocks.
+  - **Colors:** cream (main background); sand and butter-green (soft section
+    backgrounds); sage (menu, small details); plum (buttons, ornaments, one bold
+    color block); chocolate brown (text, footer).
+  - **Fonts (Google Fonts):** Playfair Display for headings and "ZOË"; Mrs Saint
+    Delafield for handwritten accent words (e.g. *Alive*, *Hi, I'm Zoë*); Lato
+    for paragraphs.
+  - **Logo:** simple placeholder emblem for now; design the real one together
+    later.
+  - **Site structure:** separate pages: Home, Pricing, Contact, Newsletter.
+  - **Phone menu:** hamburger ☰ that opens a full-screen cream-and-plum menu.
+    On computers, the menu is a row across the top.
+  - **Home page order (phone):**
+    1. Intro: "Breathe. Move. Feel. Alive." fades in word by word (~3 seconds)
+       on grainy cream; tap to skip; plays once per visit.
+    2. Top bar: emblem + "Alive with ZOË" on the left, ☰ on the right.
+    3. Headline area: large photo (placeholder for now) with "Move well. Feel
+       strong. Come alive." and a plum "Let's talk" button to the Contact page.
+    4. About Zoë: "Hi, I'm Zoë" in handwriting, photo, short paragraph (name
+       means "life" in Greek, mission, the three session types, San Diego and
+       North County), then an ornament divider.
+    5. Bold color block: full-width plum section with a Pilates pose photo and
+       one short line.
+    6. Classical and fusion Pilates: short history of Joseph Pilates, then
+       classical vs. fusion explained simply; ink-line orchid decoration.
+    7. Final invitation: "Ready to feel alive?" with a "Let's talk" button and
+       an Instagram link.
+    8. Footer on every page: chocolate brown, small newsletter sign-up box,
+       email, Instagram, menu links.
+    - On computers: same order; photos sit beside the text.
+  - **Contact (for later):** short form (name, email, goals; optional area,
+    private or group, availability) using Formspree; email and Instagram
+    shown; phone number not on the website.
+  - **Pricing (for later):** "starting at" prices, with client reviews in a
+    carousel underneath.
+  - **Newsletter (for later):** a sign-up checkbox on the contact form, plus a
+    Newsletter page with a photo and a motivating line. No newsletter tool yet;
+    choose one when building that page.
+  - **Inspiration pictures:** used only as inspiration, never placed on the
+    site. Use Zoë's own photos and original artwork.
+  - **Still needed from Zoë:** photos, email address, and the "About Zoë" text
+    (Claude can draft it for Zoë to edit).
